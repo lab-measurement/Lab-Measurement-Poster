@@ -1,0 +1,21 @@
+Lab::Measurement is a collection of Perl modules providing control of Test &
+Measurement devices. It allows for quickly setting up varying and evolving
+complex measurement tasks involving diverse hardware.
+
+It supports instruments connected by various means as GPIB, USB-TMC or VXI-11
+(Ethernet). Internally, backends as e.g. Linux-GPIB or National Instruments’
+NI-VISA library are used as well as leightweight drivers for USB
+and TCP/IP-based protocols. The wide range of supported connection
+backends 
+enables cross-platform portability. Dedicated instrument driver classes relieve
+the user from taking care of internal or vendor-specific details.
+
+A high-level layer enables fast and flexible creation
+of nested measurement loops, where e.g. several input variables are varied and
+output datafiles together with metadata are logged in a user-specified folder
+structure. 
+
+Lab::Measurement has already been
+successfully used in several low temperature transport spectroscopy setups. It
+is free software and available at http://www.labmeasurement.de/ 
+ 
