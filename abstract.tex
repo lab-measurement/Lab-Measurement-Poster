@@ -1,0 +1,48 @@
+\documentclass{scdpg}
+\begin{document}
+\scBookLanguage{de}
+\begin{scAbstract}
+%\scNoUseTeX
+\scLanguage{en}
+\scTitle{Lab::Measurement -- measurement control with Perl}
+
+\scAuthor{*}{Simon}{Reinhardt}{1}
+\scAuthor{}{Charles E.}{Lane}{2}
+\scAuthor{}{Christian}{Butschkow}{1}
+\scAuthor{}{Alexei}{Iankilevitch}{1}
+\scAuthor{}{Alois}{Dirnaichner}{1}
+\scAuthor{}{Andreas K.}{H\"{u}ttel}{1}
+
+\scAffiliation{1}{Institute for Experimental and Applied Physics, Universit\"{a}t Regensburg, Regensburg, Germany}
+\scAffiliation{2}{Department of Physics, Drexel University, Philadelphia, USA}
+\scBeginText
+
+\texttt{Lab::Measurement} is a collection of Perl 5 modules providing control of test 
+and
+measurement devices. It allows for quickly setting up varying and evolving
+complex measurement tasks with diverse hardware. Instruments can be connected 
+by means such as GPIB (IEEE 488.2), USB-TMC, or VXI-11 / raw network sockets 
+via
+Ethernet. Internally, third-party backends as e.g. Linux-GPIB, National 
+Instruments' NI-VISA library or Zurich Instruments' LabOne API are used, as 
+well
+as lightweight drivers for USB and TCP/IP-based protocols. The wide range of 
+supported connection backends enables cross-platform portability. Dedicated 
+instrument driver classes relieve the user from taking care of internal or 
+vendor-specific details. A high-level layer provides fast and flexible creation
+of nested measurement loops, where e.g. several input variables are varied and
+output data is logged into a customizable folder
+structure. \texttt{Lab::Measurement} has 
+already been successfully used in several low temperature transport 
+spectroscopy
+setups. It is free software and available at \texttt{http://www.labmeasurement.de/}
+
+\scEndText
+\scConference{Berlin 2018}
+\scPart{TT}
+\scContributionType{Poster}
+\scTopic{Low Dimensional Systems: Other Topics}
+\scEmail{simon.reinhardt@stud.uni-regensburg.de}
+\scCountry{Germany}
+\end{scAbstract}
+\end{document}
