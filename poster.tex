@@ -50,10 +50,11 @@
 \pagecolor{black}
 
 \lstset{
+  showstringspaces=false,
   basicstyle=\ttfamily,
   identifierstyle=\color[rgb]{0,0,0.5},
-  stringstyle=\color[rgb]{0,0.5,0}\textit,
-  commentstyle=\color{red}\textbf
+  stringstyle=\color[rgb]{0.5,0,0.5}\textbf,
+  commentstyle=\color[rgb]{0.9,0,0}\textbf
 }
 
 
@@ -365,13 +366,13 @@ Inner loop: Measure transmission at set of microwave frequencies with VNA
 \end{itemize}
 
 \vspace*{0.5cm}
-\placesmalllisting{VNA-FMR.pl}
-
+%\placelisting{VNA-FMR.pl}
+ \placesmalllisting{VNA-FMR.pl}
 \vspace*{3cm}
 
 \heading{Output files}
 \vspace*{-1cm}
-\placesmalllisting{ls.txt}
+\placelisting{ls.txt}
 \vspace*{2cm}
 \begin{itemize}
 \item \emph{META.yml:} Various metadata (host, user, date, version,
@@ -383,14 +384,15 @@ Inner loop: Measure transmission at set of microwave frequencies with VNA
 \end{itemize}
 
 \heading{Advanced features}
+\vspace*{-2cm}
 \begin{itemize}
 \item Higher dimensional sweeps, e.g. 3D sweep: Create one 2D datafile for each
   step of the outer sweep
 \item Log arrays and matrices of data (PDLs). Useful with spectrum analyzers,
   VNAs, and oscilloscopes
 \item Customize live plots: access to all of gnuplot's plot and curve options
-  via PDL::Graphics::Gnuplot  --- both for live plots (qt, x11, wxt) and hardcopies 
-(png, jpeg, svg, tikz, pdfcairo, ...)
+  --- both for live plots (qt, x11, wxt) and hardcopies 
+(png, jpeg, svg, tikz, pdfcairo, ...) via PDL::Graphics::Gnuplot
 
 \end{itemize}
 
