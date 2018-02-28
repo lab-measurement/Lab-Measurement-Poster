@@ -15,15 +15,15 @@ my $vna = instrument(
     connection_options => { host => '192.168.3.27' },
 );
 
-# IF bandwidth (Hz)
+# Set VNA's IF filter bandwidth (Hz)
 $vna->sense_bandwidth_resolution( value => 1 );
 
 my $field_sweep = sweep(
     type       => 'Continuous::Magnet',
     instrument => $ips,
-    from       => 2,                      # Tesla
-    to         => 0,                      # Tesla
-    rate       => 0.01,                   # Tesla/min
+    from       => 2,    # Tesla
+    to         => 0,    # Tesla
+    rate       => 0.01, # Tesla/min
     start_rate => 1,    # Tesla/min (rate to approach start point)
     interval   => 0,    # run slave sweep as often as possible
 );
