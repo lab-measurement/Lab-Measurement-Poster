@@ -1,6 +1,6 @@
 all: poster.pdf
 
-%.pdf : %.tex *.pl
+%.pdf : %.tex *.pl images/*.pdf
 	pdflatex $<
 
 clean:

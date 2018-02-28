@@ -1,2 +1,2 @@
-simon@keanae /tmp$ ls MEAS_000/
-Config.txt  DCDiamond_01.png  DCDiamond.dat dc_diamond.pl
+simon@dilfridge ~/FMR$ ls Magnetic_Resonance_001/
+META.yml  data.dat  data.dat.plot.png  magnet-resonance.pl

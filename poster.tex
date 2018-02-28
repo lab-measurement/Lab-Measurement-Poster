@@ -357,16 +357,15 @@ Growing number of high-level drivers (more are {\it very} easy to add):
 \vspace*{-1cm}
 \begin{itemize}
  \item 
- Nested sweeps: gate voltage $V_\text{g}$, bias voltage $V_\text{sd}$
+Ferromagnetic resonance measurement with Vector Network Analyzer (VNA).
  \item
- For each point, read out multimeter, write values to data file
+Outer loop: Continuous sweep of the magnetic field with OI Mercury iPS
  \item 
- Regularly updated ``live'' color plot
+Inner loop: Measure transmission at set of microwave frequencies with VNA
 \end{itemize}
 
-
 \vspace*{0.5cm}
-\placesmalllisting{xpress_2d_example.pl}
+\placesmalllisting{VNA-FMR.pl}
 
 \vspace*{3cm}
 
@@ -375,18 +374,32 @@ Growing number of high-level drivers (more are {\it very} easy to add):
 \placesmalllisting{ls.txt}
 \vspace*{2cm}
 \begin{itemize}
-\item Archival copy of the measurement script
-\item Measured data, tab-separated gnuplot format
-\item Live plot at end of measurement as png image
+\item \emph{META.yml:} Various metadata (host, user, date, version,
+  commandline arguments)
+\item \emph{data.dat:} Measured data, tab-separated gnuplot format
+\item \emph{data.dat.plot.png:} Live plot at end of measurement as png image
+\item \emph{magnetic-resonance.pl:} Archival copy of the measurement script
+
+\end{itemize}
+
+\heading{Advanced features}
+\begin{itemize}
+\item Higher dimensional sweeps, e.g. 3D sweep: Create one 2D datafile for each
+  step of the outer sweep
+\item Log arrays and matrices of data (PDLs). Useful with spectrum analyzers,
+  VNAs, and oscilloscopes
+\item Customize live plots: access to all of gnuplot's plot and curve options
+  via PDL::Graphics::Gnuplot  --- both for live plots (qt, x11, wxt) and hardcopies 
+(png, jpeg, svg, tikz, pdfcairo, ...)
+
 \end{itemize}
 
 
 
-
-%
-%
-%
-%
+% 
+% 
+% 
+% 
 \end{minipage}
 \end{minipage}}
 % end of second column
