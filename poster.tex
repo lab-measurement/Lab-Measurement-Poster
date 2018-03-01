@@ -284,17 +284,17 @@ Use a text processing language to manage your measurement! Use Perl!
 Hardware driver backends: 
 \begin{itemize}
 \item 
-NI-VISA (both on MS Windows and on Linux) and all hardware supported by it
+  NI-VISA (MS Windows) and all hardware supported by it
 \item
-LinuxGPIB and all hardware supported by it
+  LinuxGPIB and all hardware supported by it
 \item
-Linux USB-TMC kernel driver
- \item
-Oxford Instruments IsoBus
- \item
-TCP connection, generic network socket
- \item
-Serial port, USB serial connection
+  TCP connection, generic network socket (both Linux and Windows)
+\item
+  USB-TMC lightweight driver (Linux/Unix, libusb)
+\item
+  VXI-11 lightweight driver (Linux/Unix, libtirpc)
+\item
+  Zurich Instruments LabOne API (both Linux and Windows)
 \end{itemize}
 
 \vspace*{1cm}
@@ -303,7 +303,7 @@ Growing number of high-level drivers (more are {\it very} easy to add):
 \begin{itemize}
 \item Multimeters: HP / Agilent / Keysight
 \item DC sources: Yokogawa / Keithley
-\item Lock-in amplifiers: Stanford Research / Signal Recovery
+\item Lock-in amplifiers: Stanford Research / Signal Recovery / Zurich Instruments
 \item Temperature controllers: Lakeshore / Oxford Instruments
 \item RF / microwave sources, spectrum analyzers, VNAs from Rohde \& Schwarz 
 \item and many more...
@@ -325,11 +325,6 @@ Growing number of high-level drivers (more are {\it very} easy to add):
  \item
  Contributors and cooperations welcome!
 \end{itemize}
-
-
-
-
-
 
 %
 %
@@ -358,11 +353,11 @@ Growing number of high-level drivers (more are {\it very} easy to add):
 \vspace*{-1cm}
 \begin{itemize}
  \item 
-Ferromagnetic resonance measurement with Vector Network Analyzer (VNA).
+Ferromagnetic resonance measurement with Vector Network Analyzer (VNA)
  \item
-Outer loop: Continuous sweep of the magnetic field with OI Mercury iPS
+Outer loop: Continuous sweep of magnetic field with OI Mercury iPS
  \item 
-Inner loop: Measure transmission at set of microwave frequencies with VNA
+Inner loop: VNA transmission measurement at multiple microwave frequencies
 \end{itemize}
 
 \vspace*{0.5cm}
@@ -375,7 +370,7 @@ Inner loop: Measure transmission at set of microwave frequencies with VNA
 \placelisting{ls.txt}
 \vspace*{2cm}
 \begin{itemize}
-\item \emph{META.yml:} Various metadata (host, user, date, version,
+\item \emph{META.yml:} Various metadata (host, user, date, L::M version,
   commandline arguments)
 \item \emph{data.dat:} Measured data, tab-separated gnuplot format
 \item \emph{data.dat.plot.png:} Live plot at end of measurement as png image
@@ -390,6 +385,8 @@ Inner loop: Measure transmission at set of microwave frequencies with VNA
   step of the outer sweep
 \item Log arrays and matrices of data (PDLs). Useful with spectrum analyzers,
   VNAs, and oscilloscopes
+\item Extensive support for live plots via gnuplot: Line plots (2D data) and color maps (3D
+  data)
 \item Customize live plots: access to all of gnuplot's plot and curve options
   --- both for live plots (qt, x11, wxt) and hardcopies 
 (png, jpeg, svg, tikz, pdfcairo, ...) via PDL::Graphics::Gnuplot
@@ -421,7 +418,7 @@ Inner loop: Measure transmission at set of microwave frequencies with VNA
 %
 \vspace*{0.9cm}
 
-\heading{Internal architecture}
+\heading{Instrument/Connection\\abstraction layers}
 
 \vspace*{-3mm}
 \placefigure{file=images/structure}
@@ -438,36 +435,39 @@ Abstract IO layer, makes instrument drivers independent of hardware backends.
 \heading{Recent improvements}
 \vspace*{-2cm}
 \begin{itemize}
-\item {\lightblue New drivers}: R\&S FSV spectrum analyzers, R\&S ZVA and ZVM 
-vector
-  network analyzers, HP33120 function generator, Tektronix TDS2024
-  oscilloscope
-\item {\lightblue Automated testing} of instrument drivers and high-level 
-functionality via
-  mock connection objects; continuous integration testing on both Linux (Travis 
-  CI) and Windows (Appveyor)
-\item 
-  {\lightblue New framework for drivers and connections} based on 
-\textbf{Moose} --- de-facto
-  standard for Perl5, enabling modern object oriented programming
+\item {\lightblue New drivers}: OI Mercury magnet controller and level meter
+  sensor; Zurich Instruments MFLI lock-in and MFIA impedance analyzer
+\item {\lightblue New connection backends}
   \begin{itemize}
-  \item Less boilerplate code, create classes in a descriptive way
-  \item Use \textbf{roles} for safe and efficient sharing of functionality
-    between drivers
-  \item Organize SCPI subsystems into roles, which can be used by multiple
-    drivers --- see e.g. the new R\&S FSV spectrum analyzer driver:
-\vspace*{4mm}
-\placesmalllisting{fsv-roles.pl}
-\vspace*{2cm}
-  \item Extensive type system; easy validation of user provided 
- function parameters.
+  \item USB-TMC, VXI-11: Lightweight user space drivers for Linux/Unix.
+    Provide {\lightblue fast and cheap alternatives to GPIB} on Linux. High
+    reliablitiy as based on technically mature system libraries (libusb, sunrpc)
+  \item Initial support for LabOne API of Zurich Instruments: Provide Perl
+    bindings to proprietary vendor library. Instruments are accessed via
+    Ethernet or USB
   \end{itemize}
+% \item 
+%   {\lightblue New framework for drivers and connections} based on 
+% \textbf{Moose} --- de-facto
+%   standard for Perl5, enabling modern object oriented programming
+%   \begin{itemize}
+%   \item Less boilerplate code, create classes in a descriptive way
+%   \item Use \textbf{roles} for safe and efficient sharing of functionality
+%     between drivers
+%   \item Organize SCPI subsystems into roles, which can be used by multiple
+%     drivers --- see e.g. the new R\&S FSV spectrum analyzer driver:
+% \vspace*{4mm}
+% \placesmalllisting{fsv-roles.pl}
+% \vspace*{2cm}
+%   \item Extensive type system; easy validation of user provided 
+%  function parameters.
+%   \end{itemize}
   
 
-\item 
-Access to all of gnuplot's {\lightblue plot and curve options} via 
-PDL::Graphics::Gnuplot --- both for live plots (qt, x11, wxt) and hardcopies 
-(png, jpeg, svg, tikz, pdfcairo, ...)
+% \item 
+% Access to all of gnuplot's {\lightblue plot and curve options} via 
+% PDL::Graphics::Gnuplot --- both for live plots (qt, x11, wxt) and hardcopies 
+% (png, jpeg, svg, tikz, pdfcairo, ...)
 \end{itemize}
 
 \vspace*{2cm}
