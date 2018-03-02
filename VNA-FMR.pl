@@ -39,8 +39,11 @@ my $frq_sweep = sweep(
 
 my $datafile = sweep_datafile(
     columns => [ 'field', 'frq', 'Re', 'Im', 'Amp', 'phi' ] );
+
+# Add live plot
 $datafile->add_plot( x => 'field', y => 'Amp' );
 
+# Define measurement instructions
 my $meas = sub {
     my $sweep = shift;
 
@@ -53,6 +56,7 @@ my $meas = sub {
     );
 };
 
+# And go!
 $field_sweep->start(
     slave       => $frq_sweep,
     datafile    => $datafile,

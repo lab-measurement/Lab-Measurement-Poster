@@ -355,7 +355,7 @@ Growing number of high-level drivers (more are {\it very} easy to add):
  \item 
 Ferromagnetic resonance measurement with Vector Network Analyzer (VNA)
  \item
-Outer loop: Continuous sweep of magnetic field with OI Mercury iPS
+Outer loop: Continuous sweep of magnetic field with OI Mercury iPS magnet controller
  \item 
 Inner loop: VNA transmission measurement at multiple microwave frequencies
 \end{itemize}
@@ -377,7 +377,7 @@ Inner loop: VNA transmission measurement at multiple microwave frequencies
 \item \emph{magnetic-resonance.pl:} Archival copy of the measurement script
 
 \end{itemize}
-
+\vspace*{2cm}
 \heading{Advanced Sweep features}
 \vspace*{-2cm}
 \begin{itemize}
@@ -426,9 +426,9 @@ Inner loop: VNA transmission measurement at multiple microwave frequencies
 \begin{itemize}
 \item
 Modular structure. Easy to extend with new instrument drivers and connection
-types.
+types
 \item
-Abstract IO layer, makes instrument drivers independent of hardware backends.
+Abstract IO layer, makes instrument drivers independent of hardware backends
 \end{itemize}
 
 \vspace*{2cm}
@@ -436,22 +436,22 @@ Abstract IO layer, makes instrument drivers independent of hardware backends.
 \vspace*{-2cm}
 \begin{itemize}
 \item {\lightblue New drivers}: OI Mercury magnet controller and level meter
-  sensor; Zurich Instruments MFLI lock-in and MFIA impedance analyzer
+  sensor; Zurich Instruments MFLI lock-in amplifier and MFIA impedance analyzer
 \item {\lightblue New connection backends}
   \begin{itemize}
   \item USB-TMC, VXI-11: Lightweight user space drivers for Linux/Unix.
-    Provide {\lightblue fast and cheap alternatives to GPIB} on Linux. High
-    reliablitiy as based on technically mature system libraries (libusb, sunrpc)
+    Provide {\lightblue fast and cheap alternative to GPIB} on Linux. High
+    reliablitiy as based on standard system libraries (libusb, sunrpc)
   \item Initial support for LabOne API of Zurich Instruments: Provide Perl
     bindings to proprietary vendor library. Instruments are accessed via
     Ethernet or USB
   \end{itemize}
 \item {\lightblue New high-level Sweep framework:} Modern Perl
-  reimplementation of previous Lab::XPRESS layer
+  implementation; use state of the art object orientated programming
   \vspace*{0.5cm}
   \placefigure{file=images/moose-sweep}
   \begin{itemize}
-  \item Separate classes for sweeps, datafiles, datafolder, and plots
+  \item Separate classes for sweeps, datafiles, datafolders, and plots
   \item Most operational details of the sweeps are implemented in subclasses of
     the Lab::Moose::Sweep base class
     \item High modularity: \emph{Very} easy to extend with new functionality
@@ -466,7 +466,7 @@ Abstract IO layer, makes instrument drivers independent of hardware backends.
 \item Implement more sweep types with the new framework, e.g. temperature sweep
 \item {\lightblue Improve on tutorials:}
   \begin{itemize}
-  \item Entry-level for new users: Basics about connections, instruments,
+  \item Entry-level docs for new users: Basics about connections, instruments,
     and sweeps
   \item Developer docs: How to write and test new drivers; use Moose features
     efficiently
