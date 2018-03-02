@@ -446,28 +446,16 @@ Abstract IO layer, makes instrument drivers independent of hardware backends.
     bindings to proprietary vendor library. Instruments are accessed via
     Ethernet or USB
   \end{itemize}
-% \item 
-%   {\lightblue New framework for drivers and connections} based on 
-% \textbf{Moose} --- de-facto
-%   standard for Perl5, enabling modern object oriented programming
-%   \begin{itemize}
-%   \item Less boilerplate code, create classes in a descriptive way
-%   \item Use \textbf{roles} for safe and efficient sharing of functionality
-%     between drivers
-%   \item Organize SCPI subsystems into roles, which can be used by multiple
-%     drivers --- see e.g. the new R\&S FSV spectrum analyzer driver:
-% \vspace*{4mm}
-% \placesmalllisting{fsv-roles.pl}
-% \vspace*{2cm}
-%   \item Extensive type system; easy validation of user provided 
-%  function parameters.
-%   \end{itemize}
-  
-
-% \item 
-% Access to all of gnuplot's {\lightblue plot and curve options} via 
-% PDL::Graphics::Gnuplot --- both for live plots (qt, x11, wxt) and hardcopies 
-% (png, jpeg, svg, tikz, pdfcairo, ...)
+\item {\lightblue New high-level Sweep framework:} Modern Perl
+  reimplementation of previous Lab::XPRESS layer
+  \vspace*{0.5cm}
+  \placefigure{file=images/moose-sweep}
+  \begin{itemize}
+  \item Separate classes for sweeps, datafiles, datafolder, and plots
+  \item Most operational details of the sweeps are implemented in subclasses of
+    the Lab::Moose::Sweep base class
+    \item High modularity: \emph{Very} easy to extend with new functionality
+  \end{itemize}
 \end{itemize}
 
 \vspace*{2cm}
@@ -475,9 +463,15 @@ Abstract IO layer, makes instrument drivers independent of hardware backends.
 \vspace*{-2cm}
 
 \begin{itemize}
-\item Implement more drivers, connections, and XPRESS functionality with
-  Moose
-\item Build portable, lightweight USB-TMC connection based on libusb
+\item Implement more sweep types with the new framework, e.g. temperature sweep
+\item {\lightblue Improve on tutorials:}
+  \begin{itemize}
+  \item Entry-level for new users: Basics about connections, instruments,
+    and sweeps
+  \item Developer docs: How to write and test new drivers; use Moose features
+    efficiently
+  \end{itemize}
+  
 \end{itemize}
 
 
