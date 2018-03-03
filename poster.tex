@@ -186,10 +186,10 @@
 \newlength{\columnheighta}
 \newlength{\columnheightb}
 %
-\setlength{\columnheight}{104cm}           % value for portrait 3-col mode
+\setlength{\columnheight}{107cm}
 \setlength{\columnheighta}{\columnheight-6cm}
 \setlength{\columnheightb}{\columnheight+6.5cm}
-\setlength{\columnwidth}{0.31\textwidth}   % value for portrait 3-col mode
+\setlength{\columnwidth}{0.31\textwidth}
 %
 \setlength{\fboxsep}{10mm}
 \setlength{\fboxrule}{0mm}
@@ -288,13 +288,13 @@ Hardware driver backends:
 \item
   LinuxGPIB and all hardware supported by it
 \item
-  TCP connection, generic network socket (both Linux and Windows)
+  TCP connection, generic network socket (both Linux and MS Windows)
 \item
-  USB-TMC lightweight driver (Linux/Unix, libusb)
+  USB-TMC lightweight driver (Linux, libusb)
 \item
-  VXI-11 lightweight driver (Linux/Unix, libtirpc)
+  VXI-11 lightweight driver (Linux, libtirpc)
 \item
-  Zurich Instruments LabOne API (both Linux and Windows)
+  Zurich Instruments LabOne API (both Linux and MS Windows)
 \end{itemize}
 
 \vspace*{1cm}
@@ -316,7 +316,7 @@ Growing number of high-level drivers (more are {\it very} easy to add):
  \item
  Open source / free software\\[-5cm]
  \item 
- http://www.labmeasurement.de/
+ {\lightblue https://www.labmeasurement.de/}
  \hfill\epsfig{file=images/qrcode-labmeasurement,width=5cm}
  \item
  License: same as Perl (GPL-1+ or Artistic)
@@ -353,15 +353,15 @@ Growing number of high-level drivers (more are {\it very} easy to add):
 \vspace*{-1cm}
 \begin{itemize}
  \item 
-Ferromagnetic resonance measurement with Vector Network Analyzer (VNA)
+Ferromagnetic resonance measurement with vector network analyzer (VNA)
  \item
-Outer loop: Continuous sweep of magnetic field with OI Mercury iPS magnet controller
+Outer loop: continuous sweep of magnetic field with OI Mercury iPS magnet 
+controller
  \item 
 Inner loop: VNA transmission measurement at multiple microwave frequencies
 \end{itemize}
 
 \vspace*{0.5cm}
-%\placelisting{VNA-FMR.pl}
  \placesmalllisting{VNA-FMR.pl}
 \vspace*{3cm}
 
@@ -370,27 +370,26 @@ Inner loop: VNA transmission measurement at multiple microwave frequencies
 \placelisting{ls.txt}
 \vspace*{2cm}
 \begin{itemize}
-\item \emph{META.yml:} Various metadata (host, user, date, L::M version,
-  commandline arguments)
-\item \emph{data.dat:} Measured data, tab-separated gnuplot format
-\item \emph{data.dat.plot.png:} Live plot at end of measurement as png image
-\item \emph{magnetic-resonance.pl:} Archival copy of the measurement script
+\item \emph{META.yml:} various metadata (host, user, date, L::M version,
+  command line arguments)
+\item \emph{data.dat:} measured data, tab-separated gnuplot format
+\item \emph{data.dat.plot.png:} live plot at end of measurement as a png image
+\item \emph{magnetic-resonance.pl:} archival copy of the measurement script
 
 \end{itemize}
 \vspace*{2cm}
-\heading{Advanced Sweep features}
-\vspace*{-2cm}
-\begin{itemize}
-\item Higher dimensional sweeps, e.g. 3D sweep: Create one 2D datafile for each
-  step of the outer sweep
-\item Log arrays and matrices of data (PDLs). Useful with spectrum analyzers,
-  VNAs, and oscilloscopes
-\item Extensive support for live plots via gnuplot: Line plots (2D data) and color maps (3D
-  data)
-\item Customize live plots: access to all of gnuplot's plot and curve options
-  --- both for live plots (qt, x11, wxt) and hardcopies 
-(png, jpeg, svg, tikz, pdfcairo, ...) via PDL::Graphics::Gnuplot
+\heading{Advanced sweep features}
 
+\vspace*{-1cm}
+\begin{itemize}
+\item Multidimensional sweeps, e.g. 3D sweep: create one 2D datafile for each
+  step of the outer sweep
+\item Log arrays and matrices of data (PDLs). Useful for spectrum analyzers,
+  VNAs, oscilloscopes
+\item Extensive support for live plots via gnuplot: line plots (2D data) and 
+  color maps (3D data)
+\item Customizing live plots: access to all gnuplot plot and curve options 
+  via PDL::Graphics::Gnuplot
 \end{itemize}
 
 
@@ -418,7 +417,7 @@ Inner loop: VNA transmission measurement at multiple microwave frequencies
 %
 \vspace*{0.9cm}
 
-\heading{Instrument/Connection\\abstraction layers}
+\heading{Instrument / connection layers}
 
 \vspace*{-3mm}
 \placefigure{file=images/structure}
@@ -439,22 +438,25 @@ Abstract IO layer, makes instrument drivers independent of hardware backends
   sensor; Zurich Instruments MFLI lock-in amplifier and MFIA impedance analyzer
 \item {\lightblue New connection backends}
   \begin{itemize}
-  \item USB-TMC, VXI-11: Lightweight user space drivers for Linux/Unix.
-    Provide {\lightblue fast and cheap alternative to GPIB} on Linux. High
-    reliablitiy as based on standard system libraries (libusb, sunrpc)
-  \item Initial support for LabOne API of Zurich Instruments: Provide Perl
-    bindings to proprietary vendor library. Instruments are accessed via
+  \item USB-TMC, VXI-11: lightweight user space drivers for Linux.
+    Provide {\lightblue fast and cheap alternative to GPIB} on Linux; high
+    reliability since based on standard system libraries (libusb, sunrpc, 
+    libtirpc)
+  \item 
+    Initial support for the LabOne API of Zurich Instruments: provide Perl
+    bindings to proprietary vendor library; instruments accessed via
     Ethernet or USB
   \end{itemize}
-\item {\lightblue New high-level Sweep framework:} Modern Perl
+\item {\lightblue New high-level Sweep framework:} modern Perl
   implementation; use state of the art object-oriented programming
-  \vspace*{0.5cm}
+  \vspace*{1cm}
   \placefigure{file=images/moose-sweep}
+  \vspace*{0.5cm}
   \begin{itemize}
   \item Separate classes for sweeps, datafiles, datafolders, and plots
   \item Most operational details of the sweeps are implemented in subclasses of
     the Lab::Moose::Sweep base class
-    \item High modularity: \emph{Very} easy to extend with new functionality
+   \item High modularity: \emph{very} easy to extend with new functionality
   \end{itemize}
 \end{itemize}
 
@@ -466,9 +468,9 @@ Abstract IO layer, makes instrument drivers independent of hardware backends
 \item Implement more sweep types with the new framework, e.g. temperature sweep
 \item {\lightblue Improve on tutorials:}
   \begin{itemize}
-  \item Entry-level docs for new users: Basics about connections, instruments,
+  \item Entry-level docs for new users: basics about connections, instruments,
     and sweeps
-  \item Developer docs: How to write and test new drivers; use Moose features
+  \item Developer docs: how to write and test new drivers; use Moose features
     efficiently
   \end{itemize}
   
@@ -484,13 +486,8 @@ Abstract IO layer, makes instrument drivers independent of hardware backends
 
 \vspace*{0.5cm}
 \begin{center}\color{invheading}\large
-\hspace*{-4cm}We gratefully acknowlegde funding by the DFG via the Emmy Noether grant
-Hu1808/1-1 ``Carbon nanotubes as electronical and nano-electromechanical hybrid systems in
-the quantum limit'',
-\\ \hspace*{-4cm}
-the collaborative research centre SFB 689 ``Spin phenomena in reduced dimensions'', and
-the graduate research school GRK 1570  ``Electronic properties of
-carbon based nanostructures''.
+\hspace*{-4cm}We gratefully acknowlegde funding by the DFG via the Emmy Noether 
+grant Hu1808/1, SFB 689, and GRK 1570.
 \end{center}
 
 \end{document}

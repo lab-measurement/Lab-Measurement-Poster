@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
 use 5.010;
-
 use Lab::Moose;
 
 my $ips = instrument(
@@ -28,7 +27,7 @@ my $field_sweep = sweep(
     interval   => 0,    # run slave sweep as often as possible
 );
 
-# Measure transmission at 1GHz, 2GHz, ..., 10GHz
+# Measure complex transmission at 1GHz, 2GHz, ..., 10GHz
 my $frq_sweep = sweep(
     type       => 'Step::Frequency',
     instrument => $vna,
@@ -38,16 +37,16 @@ my $frq_sweep = sweep(
 );
 
 my $datafile = sweep_datafile(
-    columns => [ 'field', 'frq', 'Re', 'Im', 'Amp', 'phi' ] );
+    columns => [ 'B', 'f', 'Re', 'Im', 'r', 'phi' ] );
 
-# Add live plot
-$datafile->add_plot( x => 'field', y => 'Amp' );
+# Add live plot of transmission amplitude
+$datafile->add_plot( x => 'B', y => 'r' );
 
 # Define measurement instructions
 my $meas = sub {
     my $sweep = shift;
 
-    say "frq: ", $sweep->get_value();
+    say "frequency f: ", $sweep->get_value();
     my $field = $ips->get_field();
     my $pdl = $vna->sparam_sweep( timeout => 10 );
     $sweep->log_block(
@@ -63,4 +62,3 @@ $field_sweep->start(
     measurement => $meas,
     folder      => 'Magnetic_Resonance',
 );
-
