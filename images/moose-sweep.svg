@@ -13,7 +13,7 @@
    width="440.0618"
    version="1.1"
    sodipodi:docname="moose-sweep.svg"
-   inkscape:version="0.92.1 r15371">
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06">
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -24,14 +24,14 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1138"
+     inkscape:window-height="1135"
      id="namedview4582"
      showgrid="true"
-     inkscape:zoom="0.98622495"
-     inkscape:cx="252.44486"
-     inkscape:cy="228.39187"
+     inkscape:zoom="2.7655207"
+     inkscape:cx="220.0309"
+     inkscape:cy="75.647453"
      inkscape:window-x="0"
-     inkscape:window-y="33"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4699"
      inkscape:snap-bbox="true"
@@ -56,7 +56,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -415,12 +415,12 @@
      transform="scale(1.0246955,0.97589966)"
      id="text4549-6-36"
      y="25.39266"
-     x="184.94762"
+     x="181.04402"
      style="font-size:12px;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none">
     <tspan
        style="font-size:12px;font-family:Arial;fill:#ffffff;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none"
        id="tspan4547-7-7"
-       font-size="12.0000">DataFile/DataFolder</tspan>
+       font-size="12.0000">DataFile / DataFolder</tspan>
   </text>
   <path
      inkscape:connector-curvature="0"
@@ -429,12 +429,12 @@
      d="M 340.82848,0.55297625 V 40.247026 h 98.68034 V 0.55297625 Z" />
   <text
      id="text5053-6-6"
-     y="25.243332"
+     y="25.460182"
      x="389.74478"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.22497272;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      xml:space="preserve"
      transform="scale(1.0271696,0.97354906)"><tspan
-       y="25.243332"
+       y="25.460182"
        x="389.74478"
        id="tspan5051-1-2"
        style="font-size:12px;stroke-width:5.22497272">Plot</tspan></text>
@@ -445,7 +445,7 @@
      d="m 79.907029,66.567766 v 29.41312 h 79.192531 v -29.41312 z" />
   <text
      id="text4565-9-2-1-1"
-     y="84.239258"
+     y="86.624023"
      x="107.04445">
     <tspan
        style="font-size:12px;font-family:Arial;fill:#1b1918"
@@ -459,7 +459,7 @@
      d="m 184.75687,66.638206 v 29.51343 h 94.31343 v -29.51343 z" />
   <text
      id="text4565-9-2-1-0"
-     y="85.583984"
+     y="86.624023"
      x="203.9507">
     <tspan
        style="font-size:12px;font-family:Arial;fill:#1b1918"
@@ -473,7 +473,7 @@
      id="path4571-3" />
   <text
      id="text4565-9-2-1-1-6"
-     y="138.80469"
+     y="141.70312"
      x="10.460938">
     <tspan
        style="font-size:12px;font-family:Arial;fill:#1b1918"
@@ -487,7 +487,7 @@
      id="path4571-3-6" />
   <text
      id="text4565-9-2-1-1-6-2"
-     y="139.17773"
+     y="141.70312"
      x="82.93869">
     <tspan
        style="font-size:12px;font-family:Arial;fill:#1b1918"
@@ -501,7 +501,7 @@
      id="path4571-3-1" />
   <text
      id="text4565-9-2-1-1-6-8"
-     y="138.6664"
+     y="141.70312"
      x="173.66107">
     <tspan
        style="font-size:12px;font-family:Arial;fill:#1b1918"
@@ -515,7 +515,7 @@
      id="path4571-3-9" />
   <text
      id="text4565-9-2-1-1-6-20"
-     y="138.85986"
+     y="141.70312"
      x="269.44092">
     <tspan
        style="font-size:12px;font-family:Arial;fill:#1b1918"
@@ -529,7 +529,7 @@
      id="path4571-3-3" />
   <text
      id="text4565-9-2-1-1-6-7"
-     y="140.58398"
+     y="141.70312"
      x="357.00977">
     <tspan
        style="font-size:12px;font-family:Arial;fill:#1b1918"

@@ -2,6 +2,7 @@
 use 5.010;
 use Lab::Moose;
 
+# Define the two instruments
 my $ips = instrument(
     type               => 'OI_Mercury::Magnet',
     connection_type    => 'Socket',
@@ -17,6 +18,7 @@ my $vna = instrument(
 # Set VNA's IF filter bandwidth (Hz)
 $vna->sense_bandwidth_resolution( value => 1 );
 
+# The outer sweep: continuous magnetic field sweep
 my $field_sweep = sweep(
     type       => 'Continuous::Magnet',
     instrument => $ips,
@@ -27,7 +29,7 @@ my $field_sweep = sweep(
     interval   => 0,    # run slave sweep as often as possible
 );
 
-# Measure complex transmission at 1GHz, 2GHz, ..., 10GHz
+# The inner sweep: set frequency to 1GHz, 2GHz, ..., 10GHz
 my $frq_sweep = sweep(
     type       => 'Step::Frequency',
     instrument => $vna,
@@ -36,19 +38,25 @@ my $frq_sweep = sweep(
     step       => 1e9
 );
 
+# The data file: gnuplot-style, VNA data prefixed with B
 my $datafile = sweep_datafile(
     columns => [ 'B', 'f', 'Re', 'Im', 'r', 'phi' ] );
 
-# Add live plot of transmission amplitude
+# Add a live plot of the transmission amplitude
 $datafile->add_plot( x => 'B', y => 'r' );
 
-# Define measurement instructions
+# Define the measurement instructions per (B,f) point
 my $meas = sub {
     my $sweep = shift;
 
     say "frequency f: ", $sweep->get_value();
     my $field = $ips->get_field();
+
+    # this is not really a VNA "sweep", but only a
+    # point measurement at one frequency
     my $pdl = $vna->sparam_sweep( timeout => 10 );
+
+    # Record the result, prefixed with B
     $sweep->log_block(
         prefix => { field => $field },
         block  => $pdl
