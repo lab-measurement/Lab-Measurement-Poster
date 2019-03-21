@@ -225,12 +225,13 @@ Dirnaichner$^1$,
 and A. K. Hüttel$^1$
 }
 \\[\medskipamount]
-\it 
+{\it 
 \Large
 $^1$Institute for Experimental and Applied
 Physics, University of Regensburg, 93040 Regensburg, Germany\\
 $^2$Department of Physics, Drexel University, 3141 Chestnut Street, 
 Philadelphia, PA 19104, USA\\
+}
 \end{center}
 \vspace*{0.5cm}
 }
@@ -430,57 +431,88 @@ types
 \item
 Abstract IO layer, makes instrument drivers independent of hardware backends
 \end{itemize}
+%
+%
+%
+\vspace*{0.9cm}
 
-\vspace*{2cm}
-\heading{Recent improvements}
-\vspace*{-2cm}
+\heading{High-level sweep framework}
+\vspace*{-3mm}
+
 \begin{itemize}
-\item {\lightblue New drivers}
-  \begin{itemize}
-  \item
-  OI Mercury magnet controller and level meter
-  \item
-  Zurich Instruments MFLI lock-in amplifier and MFIA impedance analyzer
-  \end{itemize}
-\item {\lightblue New connection backends}
-  \begin{itemize}
-  \item USB-TMC, VXI-11: lightweight user space drivers for Linux.
-    Provide {\lightblue fast and cheap alternative to GPIB} on Linux; high
-    reliability since based on standard system libraries (libusb, sunrpc, 
-    libtirpc)
-  \item 
-    Initial support for the LabOne API of Zurich Instruments: provide Perl
-    bindings to proprietary vendor library; instruments accessed via
-    Ethernet or USB
-  \end{itemize}
-\item {\lightblue New high-level Sweep framework:} Modern Perl
-  implementation; use state of the art object-oriented programming
+\item Modern Perl implementation; use state of the art object-oriented
+  programming
   \vspace*{1cm}
   \placefigure{file=images/moose-sweep}
   \vspace*{0.5cm}
-  \begin{itemize}
-  \item Separate classes for sweeps, datafiles, datafolders, and plots
-  \item Most operational details of the sweeps are implemented in subclasses of
-    the Lab::Moose::Sweep base class
-   \item High modularity: \emph{very} easy to extend with new functionality
-  \end{itemize}
+\item Separate classes for sweeps, datafiles, datafolders, and plots
+\item Most operational details of the sweeps are implemented in subclasses of
+  the Lab::Moose::Sweep base class
+\item High modularity: \emph{very} easy to extend with new functionality
 \end{itemize}
-
 \vspace*{2cm}
-\heading{Outlook}
-\vspace*{-2cm}
-
-\begin{itemize}
-\item Implement more sweep types with the new framework, e.g. temperature sweep
-\item {\lightblue Improve on tutorials:}
+  \heading{Recent improvements}
+  \vspace*{-2cm}
   \begin{itemize}
-  \item Entry-level docs for new users: basics about connections, instruments,
-    and sweeps
-  \item Developer docs: how to write and test new drivers; use Moose features
-    efficiently
+  \item Extensive tutorial
+  \item {\lightblue New drivers}
+  \begin{itemize}
+  \item
+    Oxford Instruments  Mercury magnet controller and level meter
+  \item
+    Zurich Instruments MFLI lock-in amplifier and MFIA impedance analyzer
+  \item
+    Rigol DSA815 Spectrum Analyzer
+  \item
+    HP 8596E Spectrum Analyzer
+  \item
+    Oxford Instruments Triton system control
+  \item
+    Keithley 2400 sourcemeter
+  \item
+    HP 34420A nanovolt meter
+  \item
+    Lakeshore 340 temperature controller
+  \item
+    Keysight B2901A sourcemeter
   \end{itemize}
-  
+\item More configurable live plots
+\item Compatibility with newer versions of Zurich Instruments LabOne API
+% \item {\lightblue New connection backends}
+%   \begin{itemize}
+%   \item USB-TMC, VXI-11: lightweight user space drivers for Linux.
+%     Provide {\lightblue fast and cheap alternative to GPIB} on Linux; high
+%     reliability since based on standard system libraries (libusb, sunrpc, 
+%     libtirpc)
+%   \item 
+%     Initial support for the LabOne API of Zurich Instruments: provide Perl
+%     bindings to proprietary vendor library; instruments accessed via
+%     Ethernet or USB
+%   \end{itemize}
+
 \end{itemize}
+\vspace*{2cm}
+  \heading{Publication}
+  %\vspace*{-2cm}
+ \textbf{ Lab::Measurement - a portable and extensible framework for controlling lab
+  equipment and conducting measurements}\\
+  Computer Physics Communications \textbf{234}, 216 (2019); arXiv:1804.03321
+  
+% \vspace*{2cm}
+% \heading{Outlook}
+% \vspace*{-2cm}
+
+% \begin{itemize}
+% \item Implement more sweep types with the new framework, e.g. temperature sweep
+% \item {\lightblue Improve on tutorials:}
+%   \begin{itemize}
+%   \item Entry-level docs for new users: basics about connections, instruments,
+%     and sweeps
+%   \item Developer docs: how to write and test new drivers; use Moose features
+%     efficiently
+%   \end{itemize}
+  
+% \end{itemize}
 
 
 \end{minipage}
@@ -493,7 +525,7 @@ Abstract IO layer, makes instrument drivers independent of hardware backends
 \vspace*{0.5cm}
 \begin{center}\color{invheading}\large
 \hspace*{-4cm}We gratefully acknowlegde funding by the DFG via the Emmy Noether 
-grant Hu1808/1, SFB 689, and GRK 1570.
+grant Hu1808/1, SFB 689, SFB 1277, and GRK 1570.
 \end{center}
 
 \end{document}
