@@ -211,7 +211,7 @@ Lab::Measurement -- measurement control with Perl
 \begin{tabular}{ccc}
 \parbox{5cm}{\vspace*{-1cm}
 \begin{center}
-\epsfig{file=images/logo-ur,height=4.5cm}
+%\epsfig{file=images/logo-ur,height=4.5cm}
 \end{center}
 }
 &
@@ -238,7 +238,7 @@ Philadelphia, PA 19104, USA\\
 &
 \parbox{5cm}{\vspace*{-1cm}
 \begin{center}
-\epsfig{file=images/logo-sfb689,height=4.5cm}
+%\epsfig{file=images/logo-sfb689,height=4.5cm}
 \end{center}
 }
 \end{tabular}
@@ -303,10 +303,11 @@ Growing number of high-level drivers (more are {\it very} easy to add):
 {\large
 \begin{itemize}
 \item Multimeters: HP / Agilent / Keysight
-\item DC sources: Yokogawa / Keithley
+\item DC sources: Yokogawa / Keithley / Keysight
 \item Lock-in amplifiers: Stanford Research / Signal Recovery / Zurich Instruments
 \item Temperature controllers: Lakeshore / Oxford Instruments
-\item RF / microwave sources, spectrum analyzers, VNAs: \\ Rohde \& Schwarz 
+\item RF / microwave sources, spectrum analyzers, VNAs: \\ Rohde \& Schwarz, HP 
+/ Agilent, Rigol
 \item and many more...
 \end{itemize}
 }
@@ -331,19 +332,15 @@ Growing number of high-level drivers (more are {\it very} easy to add):
 %
 %
 \end{minipage}
-%
 \end{minipage}}
-% end of first row first column
+% end of first column
 %
 %
-%
-%
-% begin of first row second column
+% begin of second column
 \fcolorbox{white}{background}{
 \begin{minipage}[t][\columnheighta-2\fboxsep-2\fboxrule][t]
   {\columnwidth-2\fboxsep-2\fboxrule} \rule{0pt}{0pt}\\
   \begin{minipage}{\textwidth}
-%
 %
 %
 %
@@ -395,16 +392,12 @@ frequencies
 \end{itemize}
 
 
-
-% 
 % 
 % 
 % 
 \end{minipage}
 \end{minipage}}
 % end of second column
-%
-%
 %
 %
 %
@@ -416,9 +409,8 @@ frequencies
 %
 %
 %
-%
-\vspace*{0.9cm}
 
+\vspace*{0.9cm}
 \heading{Layer structure}
 
 \vspace*{-3mm}
@@ -431,13 +423,10 @@ types
 \item
 Abstract IO layer, makes instrument drivers independent of hardware backends
 \end{itemize}
-%
-%
-%
-\vspace*{0.9cm}
 
+\vspace*{2cm}
 \heading{High-level sweep framework}
-\vspace*{-3mm}
+\vspace*{-1cm}
 
 \begin{itemize}
 \item Modern Perl implementation; use state of the art object-oriented
@@ -460,63 +449,31 @@ Abstract IO layer, makes instrument drivers independent of hardware backends
   \item
     Oxford Instruments  Mercury magnet controller and level meter
   \item
-    Zurich Instruments MFLI lock-in amplifier and MFIA impedance analyzer
-  \item
-    Rigol DSA815 Spectrum Analyzer
-  \item
-    HP 8596E Spectrum Analyzer
-  \item
     Oxford Instruments Triton system control
-  \item
-    Keithley 2400 sourcemeter
-  \item
-    HP 34420A nanovolt meter
   \item
     Lakeshore 340 temperature controller
   \item
-    Keysight B2901A sourcemeter
+    Zurich Instruments MFLI lock-in amplifier and MFIA impedance analyzer
+  \item
+    Rigol DSA815, HP 8596E Spectrum Analyzer
+  \item
+    Keithley 2400, Keysight B2901A ``sourcemeter''
+  \item
+    HP 34420A nanovoltmeter
   \end{itemize}
-\item More configurable live plots
-\item Compatibility with newer versions of Zurich Instruments LabOne API
-% \item {\lightblue New connection backends}
-%   \begin{itemize}
-%   \item USB-TMC, VXI-11: lightweight user space drivers for Linux.
-%     Provide {\lightblue fast and cheap alternative to GPIB} on Linux; high
-%     reliability since based on standard system libraries (libusb, sunrpc, 
-%     libtirpc)
-%   \item 
-%     Initial support for the LabOne API of Zurich Instruments: provide Perl
-%     bindings to proprietary vendor library; instruments accessed via
-%     Ethernet or USB
-%   \end{itemize}
-
+\item 
+ More configurable live plots
+\item 
+ Compatibility with newer versions of Zurich Instruments LabOne API
 \end{itemize}
+
 \vspace*{2cm}
-  \heading{Publication}
-  %\vspace*{-2cm}
- \textbf{ Lab::Measurement - a portable and extensible framework for controlling lab
-  equipment and conducting measurements}\\
-  Computer Physics Communications \textbf{234}, 216 (2019); arXiv:1804.03321
-  
-% \vspace*{2cm}
-% \heading{Outlook}
-% \vspace*{-2cm}
-
-% \begin{itemize}
-% \item Implement more sweep types with the new framework, e.g. temperature sweep
-% \item {\lightblue Improve on tutorials:}
-%   \begin{itemize}
-%   \item Entry-level docs for new users: basics about connections, instruments,
-%     and sweeps
-%   \item Developer docs: how to write and test new drivers; use Moose features
-%     efficiently
-%   \end{itemize}
-  
-% \end{itemize}
-
+\heading{Reference / Cite as}
+\textbf{``Lab::Measurement --- a portable and extensible framework for 
+controlling lab  equipment and conducting measurements''}, 
+S. Reinhardt {\it et al.}, Comp. Phys. Comm. \textbf{234}, 216 (2019)
 
 \end{minipage}
-
 \end{minipage}}  % end of first row third column
 %
 %
