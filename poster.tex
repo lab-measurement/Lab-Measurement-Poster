@@ -220,17 +220,13 @@ Lab::Measurement -- measurement control with Perl
 {
 \vspace*{-0.5cm}
 \huge 
-S. Reinhardt$^1$, C. E. Lane$^2$, C. Butschkow$^1$, A. Iankilevitch$^1$, A. 
-Dirnaichner$^1$, 
-and A. K. Hüttel$^1$
+M. Schambeck, E. Fabrizzi, F. Weinelt,  S. Reinhardt, and A. K. Hüttel
 }
 \\[\medskipamount]
 {\it 
 \Large
-$^1$Institute for Experimental and Applied
+Institute for Experimental and Applied
 Physics, University of Regensburg, 93040 Regensburg, Germany\\
-$^2$Department of Physics, Drexel University, 3141 Chestnut Street, 
-Philadelphia, PA 19104, USA\\
 }
 \end{center}
 \vspace*{0.5cm}
@@ -289,13 +285,15 @@ Hardware driver backends:
 \item
   LinuxGPIB and all hardware supported by it
 \item
-  TCP connection, generic network socket (both Linux and MS Windows)
+  TCP connection, generic network socket
 \item
   USB-TMC lightweight driver (Linux, libusb)
 \item
   VXI-11 lightweight driver (Linux, libtirpc)
 \item
-  Zurich Instruments LabOne API (both Linux and MS Windows)
+  Oxford Instruments IsoBus
+\item
+  Zurich Instruments LabOne API
 \end{itemize}
 
 \vspace*{1cm}
@@ -304,10 +302,13 @@ Growing number of high-level drivers (more are {\it very} easy to add):
 \begin{itemize}
 \item Multimeters: HP / Agilent / Keysight
 \item DC sources: Yokogawa / Keithley / Keysight
-\item Lock-in amplifiers: Stanford Research / Signal Recovery / Zurich Instruments
+\item AW generators: Rigol
+\item Lock-in amplifiers: Stanford Research / Signal Recovery / Zurich 
+Instruments / SyncTek
 \item Temperature controllers: Lakeshore / Oxford Instruments
 \item RF / microwave sources, spectrum analyzers, VNAs: \\ Rohde \& Schwarz, HP 
 / Agilent, Rigol
+\item Nanonis Tramea; AH2700A capacitance bridge
 \item and many more...
 \end{itemize}
 }
