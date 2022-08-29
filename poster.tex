@@ -306,9 +306,9 @@ Growing number of high-level drivers (more are {\it very} easy to add):
 \item Lock-in amplifiers: Stanford Research / Signal Recovery / Zurich 
 Instruments / SyncTek
 \item Temperature controllers: Lakeshore / Oxford Instruments
-\item RF / microwave sources, spectrum analyzers, VNAs: \\ Rohde \& Schwarz, HP 
-/ Agilent, Rigol
-\item Nanonis Tramea; AH2700A capacitance bridge
+\item RF / microwave sources, spectrum analyzers, VNAs: \\ Rohde \& Schwarz / 
+HP / Agilent / Rigol
+\item Nanonis Tramea
 \item and many more...
 \end{itemize}
 }
@@ -385,7 +385,7 @@ frequencies
 \item Multidimensional sweeps, e.g. 3D sweep: creating one 2D datafile for each
   step of the outermost sweep
 \item Log arrays and matrices of data (PDLs). Useful for spectrum analyzers,
-  VNAs, oscilloscopes
+  VNAs, oscilloscopes which do fast, internally controlled sweeps.
 \item Extensive support for live plots via gnuplot: line plots (2D data) and 
   color maps (3D data)
 \item Customizing live plots: access to all gnuplot plot and curve options 
@@ -436,36 +436,43 @@ Abstract IO layer, makes instrument drivers independent of hardware backends
   \placefigure{file=images/moose-sweep}
   \vspace*{0.5cm}
 \item Separate classes for sweeps, datafiles, datafolders, and plots
-\item Most operational details of the sweeps are implemented in subclasses of
-  the Lab::Moose::Sweep base class
-\item High modularity: \emph{very} easy to extend with new functionality
+\item Most operational details of sweeps implemented in subclasses of
+  Lab::Moose::Sweep
+\item High modularity: \emph{very} easy to extend
 \end{itemize}
 \vspace*{2cm}
-  \heading{Recent improvements}
+  \heading{New improvements / additions}
   \vspace*{-2cm}
   \begin{itemize}
-  \item Extensive tutorial
+  \item
+  VISA::USB connection: USB-TMC over NI-VISA
+  \item
+  Enable magnet persistent mode usage
+  \item
+  RFC3161 timestamps for measurement data
   \item {\lightblue New drivers}
   \begin{itemize}
+  \item 
+  Andeen-Hagerling AH2700A ultra-precision capacitance bridge
   \item
-    Oxford Instruments  Mercury magnet controller and level meter
+  HP 8596E, Rigol DSA815 spectrum analyzer
   \item
-    Oxford Instruments Triton system control
+  SignalRecovery 7265, Zurich Instruments HF2LI, Synctek MCL1-540 lock-in
   \item
-    Lakeshore 340 temperature controller
+  Oxford Instruments Triton and ITC503 temperature control
   \item
-    Zurich Instruments MFLI lock-in amplifier and MFIA impedance analyzer
+  Keithley 2400, 2450 sourcemeter
   \item
-    Rigol DSA815, HP 8596E Spectrum Analyzer
+  HP 34420A Nanovoltmeter
   \item
-    Keithley 2400, Keysight B2901A ``sourcemeter''
+  Tektronix TBS1000C, Keysight DSOS604A oscilloscope
   \item
-    HP 34420A nanovoltmeter
+  Rigol DG5000 series waveform generator
+  \item
+  Rohde \& Schwarz ZNL network analyzer
+  \item
+  Nanonis Tramea (work in progress)
   \end{itemize}
-\item 
- More configurable live plots
-\item 
- Compatibility with newer versions of Zurich Instruments LabOne API
 \end{itemize}
 
 \vspace*{2cm}
