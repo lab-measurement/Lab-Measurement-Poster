@@ -348,34 +348,35 @@ HP / Agilent / Keysight / Rigol
 %
 
 \vspace*{0.9cm}
-\heading{Real world measurement}
+\heading{Real world VNA measurement}
 
 \vspace*{-1cm}
 \begin{itemize}
  \item 
-Ferromagnetic resonance measurement with vector network analyzer (VNA)
+ Measuring $\left| S_{21} \right|^2$ for increasing signal power
  \item
-Outer loop: continuous sweep of magnetic field with OI Mercury iPS magnet 
-controller
+ Outer loop: power applied by VNA
  \item 
-Inner loop: VNA transmission measurement at multiple discrete microwave 
-frequencies
+ Inner loop: hardware-executed VNA frequency sweep, transmission measurement
 \end{itemize}
 
 \vspace*{0.5cm}
- \placesmalllisting{VNA-FMR.pl}
+ \placesmalllisting{vnasweep.pl}
 \vspace*{3cm}
+
 
 \heading{Output files}
 \vspace*{-1cm}
-\placelisting{ls.txt}
+\placelisting{vna-ls.txt}
 \vspace*{2cm}
 \begin{itemize}
 \item \emph{META.yml:} various metadata (host, user, date, L::M version,
   command line arguments)
 \item \emph{data.dat:} measured data, in tab-separated Gnuplot format
 \item \emph{data.png:} live plot at the end of the measurement, as a png image
-\item \emph{magnetic-resonance.pl:} archival copy of the measurement script
+(optional)
+\item archival copy of the measurement script
+
 
 \end{itemize}
 \vspace*{2cm}

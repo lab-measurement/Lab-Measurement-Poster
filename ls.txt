@@ -1,2 +1,0 @@
-simon@dilfridge ~/FMR$ ls Magnetic_Resonance_001/
-META.yml  data.dat  data.png  magnet-resonance.pl
