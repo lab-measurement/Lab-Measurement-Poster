@@ -220,7 +220,7 @@ Lab::Measurement -- measurement control with Perl
 {
 \vspace*{-0.5cm}
 \huge 
-M. Schambeck, E. Fabrizzi, S. Reinhardt, and A. K. Hüttel
+S. Reinhardt, M. Schambeck, E. Fabrizzi, and A. K. Hüttel
 }
 \\[\medskipamount]
 {\it 
@@ -285,7 +285,7 @@ Hardware driver backends:
 \item
   LinuxGPIB and all hardware supported by it
 \item
-  TCP connection, generic network socket
+  HTTP, TCP connection, generic network socket
 \item
   USB-TMC lightweight driver (Linux, libusb)
 \item
@@ -302,33 +302,24 @@ Growing number of high-level drivers (more are {\it very} easy to add):
 \begin{itemize}
 \item Multimeters: HP / Agilent / Keysight / Keithley
 \item DC sources: Yokogawa / Keithley / Keysight
-\item AW generators: Rigol / Agilent / Keysight
+\item AW generators: Rigol / Agilent / Keysight / Zurich Instruments
 \item Lock-in amplifiers: Stanford Research / Signal Recovery / Zurich 
 Instruments / SyncTek
 \item RF / microwave sources, spectrum analyzers, VNAs: \\ Rohde \& Schwarz / 
 HP / Agilent / Keysight / Rigol
 \item Oscilloscopes: Tektronix / Keysight / Rohde \& Schwarz
-\item Temperature controllers: Lakeshore / Oxford Instruments
-\item Magnet power supplies: Oxford Instruments
+\item Temperature controllers: Lakeshore / Oxford Instruments / Bluefors
+\item Magnet power supplies: Oxford Instruments, American Magnetics (Bluefors)
 \item Quantum Measurement Systems: Nanonis Tramea
 \end{itemize}
 }
+
 \vspace*{1cm}
-\heading{Key facts}
-\vspace*{-2cm}
-\begin{itemize}
- \item
- Open source / free software\\[-5cm]
- \item 
- {\lightblue https://www.labmeasurement.de/}
- \hfill\epsfig{file=images/qrcode-labmeasurement,width=5cm}
- \item
- License: same as Perl (GPL-1+ or Artistic)
- \item
- Releases on CPAN, development on Github
- \item
- Contributors and cooperations welcome!
-\end{itemize}
+\heading{Reference / Cite as}
+\textbf{``Lab::Measurement --- a portable and extensible framework for 
+controlling lab  equipment and conducting measurements''}, 
+S. Reinhardt {\it et al.}, Comp. Phys. Comm. \textbf{234}, 216 (2019)
+
 
 %
 %
@@ -376,6 +367,7 @@ HP / Agilent / Keysight / Rigol
 \item \emph{data.png:} live plot at the end of the measurement, as a png image
 (optional)
 \item archival copy of the measurement script
+\item RFC3161 timestamps for data (optional)
 
 
 \end{itemize}
@@ -445,35 +437,48 @@ Abstract IO layer, makes instrument drivers independent of hardware backends
 \vspace*{2cm}
   \heading{New improvements / additions}
   \vspace*{-2cm}
-  \begin{itemize}
+\begin{itemize}
   \item
-  RFC3161 timestamps for measurement data
-  \item {\lightblue New drivers}
-  \begin{itemize}
+  Bluefors dilution refrigerator temperature control
+  \item 
+  American Magnetics AMI 430 (Bluefors) magnet power supply
+  \item 
+  Keysight N9310A RF generator 
   \item
-  HP 8596E, Rigol DSA815 spectrum analyzer
-  \item
-  SignalRecovery 7265, Zurich Instruments HF2LI lock-in
-  \item
-  Oxford Instruments Triton and ITC503 temperature control
-  \item
-  Keithley 2400, 2450 sourcemeter
-  \item
-  Nanonis Tramea measurement system
-  \item
-  Agilent 33120A, Keysight 33500 arbitrary waveform generator
-  \item
-  Keysight 34470A multimeter
-  \item
-  Rohde \& Schwarz RTB2000 oscilloscope, ZVB network analyzer
-  \end{itemize}
+  Zurich Instruments HDAWG arbitrary waveform generator
 \end{itemize}
 
 \vspace*{2cm}
-\heading{Reference / Cite as}
-\textbf{``Lab::Measurement --- a portable and extensible framework for 
-controlling lab  equipment and conducting measurements''}, 
-S. Reinhardt {\it et al.}, Comp. Phys. Comm. \textbf{234}, 216 (2019)
+  \heading{Very stable}
+  \vspace*{-2cm}
+\begin{itemize}
+  \item
+  No continuous adaptions (e.g., for new Python versions or operating system 
+  versions) needed
+  \item
+  None of the new Perl releases over the past years have
+  ever required changes to measurement scripts
+\end{itemize}
+
+\vspace*{2cm}
+\heading{Key facts}
+\vspace*{-2cm}
+\begin{itemize}
+ \item
+ Programmed in Perl 5, following the Modern Perl guidelines
+ \item
+ Open source / free software\\[-5cm]
+ \item 
+ {\lightblue https://www.labmeasurement.de/}
+ \hfill\epsfig{file=images/qrcode-labmeasurement,width=5cm}
+ \item
+ License: same as Perl (GPL-1+ or Artistic)
+ \item
+ Releases on CPAN, development on Github
+ \item
+ Contributors and collaborations welcome!
+\end{itemize}
+
 
 \end{minipage}
 \end{minipage}}  % end of first row third column
